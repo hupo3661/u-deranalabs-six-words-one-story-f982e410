@@ -15,7 +15,8 @@ STORY = "He survived the war. Not peace."
 
 def main() -> None:
     words = STORY.split()
-    assert len(words) == 6, f"expected 6 words, got {len(words)}"
+    if len(words) != 6:
+        raise SystemExit(f"expected 6 words, got {len(words)}")
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
